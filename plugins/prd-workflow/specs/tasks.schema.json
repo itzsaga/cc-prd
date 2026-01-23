@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tasks.schema.json",
+  "title": "PRD Tasks",
+  "description": "Schema for defining tasks in a PRD tasks.yaml file",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/topLevelTask"
+  },
+  "$defs": {
+    "topLevelTask": {
+      "description": "A top-level task that can optionally contain subtasks",
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/leafTask"
+        },
+        {
+          "$ref": "#/$defs/parentTask"
+        }
+      ]
+    },
+    "parentTask": {
+      "description": "A task that contains subtasks to be worked in parallel",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A simple summary of the task"
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the task"
+        },
+        "subtasks": {
+          "type": "array",
+          "description": "A list of tasks that can be completed in parallel",
+          "items": {
+            "$ref": "#/$defs/leafTask"
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["name", "description", "subtasks"],
+      "additionalProperties": false
+    },
+    "leafTask": {
+      "description": "A task without subtasks that will be completed by a subagent",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A simple summary of the task"
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the task"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the task",
+          "enum": ["draft", "defined", "completed"]
+        },
+        "spec": {
+          "type": "string",
+          "description": "Path to the file that defines the task parameters in detail"
+        }
+      },
+      "required": ["name", "description", "status", "spec"],
+      "additionalProperties": false
+    }
+  }
+}

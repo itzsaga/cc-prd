@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "jackbot-ai",
+  "version": "1.0.0",
+  "description": "Claude Code plugin marketplace for PRD workflow and utilities",
+  "plugins": [
+    {
+      "name": "prd-workflow",
+      "version": "1.0.0",
+      "description": "Full PRD (Product Requirements Document) workflow system with research, planning, and implementation capabilities",
+      "path": "plugins/prd-workflow",
+      "dependencies": {
+        "required": ["jq", "yq", "check-jsonschema"],
+        "optional": ["glow", "notify-send", "tmux"]
+      },
+      "mcp_servers": {
+        "required": [],
+        "optional": ["exa"]
+      },
+      "tags": ["prd", "workflow", "research", "planning", "tasks"]
+    }
+  ]
+}

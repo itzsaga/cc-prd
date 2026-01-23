@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research.schema.json",
+  "title": "PRD Research Questions",
+  "description": "Schema for defining research questions in a PRD research.yaml file",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/question"
+  },
+  "$defs": {
+    "question": {
+      "description": "A research question to be answered",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The question text"
+        },
+        "answer": {
+          "type": "string",
+          "description": "Answer returned from the exa MCP server. Can be a long multi-line string."
+        },
+        "mode": {
+          "type": "string",
+          "description": "The research mode to use",
+          "enum": ["answer", "deep-research"],
+          "default": "answer"
+        },
+        "citations": {
+          "type": "array",
+          "description": "A list of citation objects returned by the exa MCP server",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        }
+      },
+      "required": ["text", "mode"],
+      "additionalProperties": false
+    },
+    "citation": {
+      "description": "A citation for a research answer",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Web address for the citation"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title for the citation"
+        }
+      },
+      "required": ["url", "title"],
+      "additionalProperties": false
+    }
+  }
+}
