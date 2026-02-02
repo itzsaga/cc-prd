@@ -6,7 +6,6 @@
     "name": "itzsaga"
   },
   "license": "MIT",
-  "agents": "./agents/",
   "commands": ["./commands/rebase.md"],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json"
