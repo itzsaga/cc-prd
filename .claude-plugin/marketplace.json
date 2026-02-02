@@ -10,15 +10,7 @@
       "name": "prd-workflow",
       "version": "1.0.0",
       "description": "Full PRD (Product Requirements Document) workflow system with research, planning, and implementation capabilities",
-      "path": "./plugins/prd-workflow",
-      "dependencies": {
-        "required": ["jq", "yq", "check-jsonschema"],
-        "optional": ["glow", "notify-send", "tmux"]
-      },
-      "mcp_servers": {
-        "required": [],
-        "optional": ["exa"]
-      },
+      "source": "./plugins/prd-workflow",
       "tags": ["prd", "workflow", "research", "planning", "tasks"]
     }
   ]
