@@ -1,115 +1,13 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "prd-workflow",
   "version": "1.0.0",
   "description": "Full PRD workflow system with research, planning, and implementation capabilities",
-  "author": "Adapted from fullykubed/nixos-config",
-  "license": "MIT",
-  "agents": [
-    {
-      "name": "prd-researcher",
-      "file": "agents/prd-researcher.md",
-      "description": "Research agent using Exa MCP tools for answering questions"
-    },
-    {
-      "name": "prd-worker",
-      "file": "agents/prd-worker.md",
-      "description": "Implementation agent for completing PRD tasks"
-    }
-  ],
-  "commands": [
-    {
-      "name": "rebase",
-      "file": "commands/rebase.md",
-      "description": "Rebase current branch onto a target branch with conflict resolution"
-    }
-  ],
-  "hooks": [
-    {
-      "event": "PostToolUse",
-      "matcher": {
-        "tool_name": "Edit|Write",
-        "file_path": ".*\\.claude/prds/.*/tasks\\.yaml$"
-      },
-      "command": "${CLAUDE_PLUGIN_ROOT}/hooks/validate-tasks.sh"
-    },
-    {
-      "event": "PostToolUse",
-      "matcher": {
-        "tool_name": "Edit|Write",
-        "file_path": ".*\\.claude/prds/.*/research\\.yaml$"
-      },
-      "command": "${CLAUDE_PLUGIN_ROOT}/hooks/validate-research.sh"
-    }
-  ],
-  "skills": [
-    {
-      "name": "PRD",
-      "file": "skills/PRD/SKILL.md",
-      "description": "Full PRD workflow for creating, planning, and implementing product requirements"
-    }
-  ],
-  "scripts": {
-    "claude-PRD-list-prds": "skills/PRD/scripts/list-prds.sh",
-    "claude-PRD-task-status": "skills/PRD/scripts/task-status.sh",
-    "claude-PRD-get-task": "skills/PRD/scripts/get-task.sh",
-    "claude-PRD-list-draft-tasks": "skills/PRD/scripts/list-prd-draft-tasks.sh",
-    "claude-PRD-list-defined-tasks": "skills/PRD/scripts/list-defined-tasks.sh",
-    "claude-PRD-update-task-status": "skills/PRD/scripts/update-task-status.sh",
-    "claude-PRD-research-status": "skills/PRD/scripts/research-status.sh",
-    "claude-PRD-get-unanswered-research": "skills/PRD/scripts/get-unanswered-research.sh"
+  "author": {
+    "name": "itzsaga"
   },
-  "dependencies": {
-    "required": {
-      "jq": {
-        "description": "JSON parsing and manipulation",
-        "install": {
-          "macos": "brew install jq",
-          "debian": "apt install jq",
-          "arch": "pacman -S jq",
-          "nix": "nix-env -iA nixpkgs.jq"
-        }
-      },
-      "yq": {
-        "description": "YAML parsing and manipulation",
-        "install": {
-          "macos": "brew install yq",
-          "debian": "snap install yq || pip install yq",
-          "arch": "pacman -S yq",
-          "nix": "nix-env -iA nixpkgs.yq-go"
-        }
-      },
-      "check-jsonschema": {
-        "description": "JSON Schema validation",
-        "install": {
-          "all": "pip install check-jsonschema"
-        }
-      }
-    },
-    "optional": {
-      "glow": {
-        "description": "Markdown rendering in terminal",
-        "install": {
-          "macos": "brew install glow",
-          "debian": "snap install glow",
-          "arch": "pacman -S glow",
-          "nix": "nix-env -iA nixpkgs.glow"
-        }
-      },
-      "notify-send": {
-        "description": "Desktop notifications (Linux)",
-        "install": {
-          "debian": "apt install libnotify-bin",
-          "arch": "pacman -S libnotify"
-        }
-      }
-    },
-    "mcp_servers": {
-      "exa": {
-        "description": "Exa AI web search and research tools",
-        "required_for": ["prd-researcher agent", "research.yaml workflows"],
-        "notes": "Requires EXA_API_KEY environment variable"
-      }
-    }
-  }
+  "license": "MIT",
+  "agents": "./agents/",
+  "commands": ["./commands/rebase.md"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }
