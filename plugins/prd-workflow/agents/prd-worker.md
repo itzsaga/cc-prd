@@ -1,3 +1,8 @@
+---
+name: prd-worker
+description: Task implementation agent that completes work based on PRD task specifications
+---
+
 # PRD Worker Agent
 # Implements PRD tasks based on detailed specifications
 

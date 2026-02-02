@@ -1,3 +1,8 @@
+---
+description: Rebase current branch onto a target branch with automatic conflict resolution
+argument-hint: "[target-branch]"
+---
+
 # Rebase Command
 # Rebases current branch onto target branch with automatic conflict resolution
 

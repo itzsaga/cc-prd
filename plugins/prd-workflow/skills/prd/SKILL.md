@@ -1,3 +1,7 @@
+---
+description: Full PRD workflow for creating, planning, and implementing Product Requirements Documents
+---
+
 # PRD Skill
 # Manages Product Requirements Documents through their complete lifecycle
 

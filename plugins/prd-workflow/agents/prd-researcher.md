@@ -1,3 +1,8 @@
+---
+name: prd-researcher
+description: Research agent that uses Exa MCP tools to answer questions about code and documentation
+---
+
 # PRD Researcher Agent
 # Uses Exa MCP tools to answer research questions
 
