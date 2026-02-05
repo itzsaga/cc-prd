@@ -91,7 +91,7 @@ claude-PRD-task-status my-feature
 ## Directory Structure
 
 ```
-jackbot-ai/
+cc-prd/
 ├── .claude-plugin/
 │   └── marketplace.json       # Marketplace catalog
 ├── plugins/
