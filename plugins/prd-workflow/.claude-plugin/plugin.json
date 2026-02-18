@@ -6,6 +6,6 @@
     "name": "itzsaga"
   },
   "license": "MIT",
-  "commands": ["./commands/rebase.md", "./commands/prd.md"],
+  "commands": ["./commands/rebase.md", "./commands/prd-command.md"],
   "skills": "./skills/"
 }
