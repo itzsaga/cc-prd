@@ -1,11 +1,11 @@
 {
   "name": "prd-workflow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Full PRD workflow system with research, planning, and implementation capabilities",
   "author": {
     "name": "itzsaga"
   },
   "license": "MIT",
-  "commands": ["./commands/rebase.md", "./commands/prd-command.md"],
+  "commands": ["./commands/rebase.md"],
   "skills": "./skills/"
 }
