@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null || ! command -v jq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-research-status <prd-name>"
+    echo "Usage: scripts/research-status.sh <prd-name>"
     echo ""
     echo "Returns JSON with research question counts: draft, complete, and total."
     exit 1

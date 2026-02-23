@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-get-unanswered-research <prd-name>"
+    echo "Usage: scripts/get-unanswered-research.sh <prd-name>"
     echo ""
     echo "Returns JSON array of unanswered research questions."
     echo "Each question includes 'text' and 'mode' fields."

@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null || ! command -v jq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-get-task <prd-name> <task-name>"
+    echo "Usage: scripts/get-task.sh <prd-name> <task-name>"
     echo ""
     echo "Returns full task details including status, spec path, and file locations."
     exit 1

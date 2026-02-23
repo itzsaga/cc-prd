@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null || ! command -v jq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-list-defined-tasks <prd-name>"
+    echo "Usage: scripts/list-defined-tasks.sh <prd-name>"
     echo ""
     echo "Lists all tasks with 'defined' status that are ready for implementation."
     exit 1

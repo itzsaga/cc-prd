@@ -1,16 +1,16 @@
-# CLI Tools
-# Reference documentation for PRD workflow CLI tools
+# Scripts
+# Reference documentation for PRD workflow scripts
 
-The following CLI tools are available across all workflows.
+The following scripts are available in the `scripts/` directory relative to the skill root. All paths below are relative to the skill directory.
 
 ## PRD Management
 
-### `claude-PRD-list-prds`
+### `scripts/list-prds.sh`
 
 Lists all PRDs with their status. Returns JSON output.
 
 ```bash
-claude-PRD-list-prds
+scripts/list-prds.sh
 # Output: [{"name": "my-feature", "status": "in-progress", "completed": 3, "total": 5}, ...]
 ```
 
@@ -22,21 +22,21 @@ claude-PRD-list-prds
 
 ## Task Management
 
-### `claude-PRD-task-status <prd-name>`
+### `scripts/task-status.sh <prd-name>`
 
 Returns JSON describing task counts by status for a specific PRD.
 
 ```bash
-claude-PRD-task-status my-feature
+scripts/task-status.sh my-feature
 # Output: {"draft": 2, "defined": 3, "completed": 1, "total": 6}
 ```
 
-### `claude-PRD-get-task <prd-name> <task-name>`
+### `scripts/get-task.sh <prd-name> <task-name>`
 
 Returns full task details including status, spec path, and file locations.
 
 ```bash
-claude-PRD-get-task my-feature "Implement API endpoint"
+scripts/get-task.sh my-feature "Implement API endpoint"
 # Output:
 # {
 #   "name": "Implement API endpoint",
@@ -54,50 +54,50 @@ claude-PRD-get-task my-feature "Implement API endpoint"
 # }
 ```
 
-### `claude-PRD-list-draft-tasks <prd-name>`
+### `scripts/list-prd-draft-tasks.sh <prd-name>`
 
 Lists all leaf tasks (tasks without subtasks) that are in draft status.
 
 ```bash
-claude-PRD-list-draft-tasks my-feature
+scripts/list-prd-draft-tasks.sh my-feature
 # Output: [{"name": "Implement API endpoint", "description": "...", "spec": "specs/implement-api-endpoint.md", "parent": null}, ...]
 ```
 
-### `claude-PRD-list-defined-tasks <prd-name>`
+### `scripts/list-defined-tasks.sh <prd-name>`
 
 Lists all tasks with `defined` status that are ready for implementation.
 
 ```bash
-claude-PRD-list-defined-tasks my-feature
+scripts/list-defined-tasks.sh my-feature
 # Output: [{"name": "Implement API endpoint", "description": "...", "spec": "specs/implement-api-endpoint.md", "parent": null}, ...]
 ```
 
-### `claude-PRD-update-task-status <prd-name> <task-name> <new-status>`
+### `scripts/update-task-status.sh <prd-name> <task-name> <new-status>`
 
 Updates the status of a specific task.
 
 ```bash
-claude-PRD-update-task-status my-feature "Implement API endpoint" completed
+scripts/update-task-status.sh my-feature "Implement API endpoint" completed
 # Valid statuses: draft, defined, completed
 ```
 
 ## Research Management
 
-### `claude-PRD-research-status <prd-name>`
+### `scripts/research-status.sh <prd-name>`
 
 Returns JSON describing research question status for a specific PRD.
 
 ```bash
-claude-PRD-research-status my-feature
+scripts/research-status.sh my-feature
 # Output: {"draft": 1, "complete": 4, "total": 5}
 ```
 
-### `claude-PRD-get-unanswered-research <prd-name>`
+### `scripts/get-unanswered-research.sh <prd-name>`
 
 Returns JSON array of unanswered research questions (those without an `answer` field).
 
 ```bash
-claude-PRD-get-unanswered-research my-feature
+scripts/get-unanswered-research.sh my-feature
 # Output: [{"text": "What library should we use for auth?", "mode": "answer"}, ...]
 ```
 

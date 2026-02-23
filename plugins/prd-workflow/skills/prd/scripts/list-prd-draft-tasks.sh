@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null || ! command -v jq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-list-draft-tasks <prd-name>"
+    echo "Usage: scripts/list-prd-draft-tasks.sh <prd-name>"
     echo ""
     echo "Lists all leaf tasks (tasks without subtasks) that are in draft status."
     exit 1

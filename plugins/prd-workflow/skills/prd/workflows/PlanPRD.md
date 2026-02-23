@@ -4,9 +4,9 @@
 ## Prerequisites
 
 Before starting:
-1. Verify the PRD exists using `claude-PRD-list-prds`
+1. Verify the PRD exists using `scripts/list-prds.sh`
 2. Confirm the PRD has required sections (Objective, Motivation, Implementation Details, Discussion)
-3. Check task status with `claude-PRD-task-status <prd-name>`
+3. Check task status with `scripts/task-status.sh <prd-name>`
 
 ## Steps
 
@@ -58,12 +58,12 @@ Create `research.yaml` with questions (max 25):
 
 ### Step 6: Execute Research
 
-For each unanswered question (use `claude-PRD-get-unanswered-research`):
+For each unanswered question (use `scripts/get-unanswered-research.sh`):
 1. Launch `prd-researcher` subagent with the question
 2. Capture the response and citations
 3. Update `research.yaml` with the answer
 
-Use `claude-PRD-research-status` to track progress.
+Use `scripts/research-status.sh` to track progress.
 
 ### Checkpoint 2 (Step 7)
 
@@ -115,7 +115,7 @@ For each draft task, create a detailed spec file following `reference/task-spec.
 4. Define clear acceptance criteria
 5. Update task status to "defined"
 
-Use `claude-PRD-update-task-status <prd> <task> defined` after each spec is complete.
+Use `scripts/update-task-status.sh <prd> <task> defined` after each spec is complete.
 
 ### Step 11: Validation
 

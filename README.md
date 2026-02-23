@@ -83,9 +83,9 @@ A complete PRD workflow system with three main phases:
 # Work on a planned PRD (implementation)
 /prd work my-feature
 
-# Check PRD status
-claude-PRD-list-prds
-claude-PRD-task-status my-feature
+# Check PRD status (scripts are relative to the skill directory)
+scripts/list-prds.sh
+scripts/task-status.sh my-feature
 ```
 
 ## Directory Structure
@@ -140,18 +140,20 @@ PRDs are stored in `.claude/prds/<prd-name>/`:
     └── task-name.md
 ```
 
-## CLI Tools
+## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `claude-PRD-list-prds` | List all PRDs with status |
-| `claude-PRD-task-status <prd>` | Get task counts by status |
-| `claude-PRD-get-task <prd> <task>` | Get full task details |
-| `claude-PRD-list-draft-tasks <prd>` | List tasks needing specs |
-| `claude-PRD-list-defined-tasks <prd>` | List tasks ready to implement |
-| `claude-PRD-update-task-status <prd> <task> <status>` | Update task status |
-| `claude-PRD-research-status <prd>` | Get research completion status |
-| `claude-PRD-get-unanswered-research <prd>` | Get pending research questions |
+Scripts are located in `plugins/prd-workflow/skills/prd/scripts/` and are invoked relative to the skill directory.
+
+| Script | Description |
+|--------|-------------|
+| `scripts/list-prds.sh` | List all PRDs with status |
+| `scripts/task-status.sh <prd>` | Get task counts by status |
+| `scripts/get-task.sh <prd> <task>` | Get full task details |
+| `scripts/list-prd-draft-tasks.sh <prd>` | List tasks needing specs |
+| `scripts/list-defined-tasks.sh <prd>` | List tasks ready to implement |
+| `scripts/update-task-status.sh <prd> <task> <status>` | Update task status |
+| `scripts/research-status.sh <prd>` | Get research completion status |
+| `scripts/get-unanswered-research.sh <prd>` | Get pending research questions |
 
 ## Credits
 

@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-update-task-status <prd-name> <task-name> <new-status>"
+    echo "Usage: scripts/update-task-status.sh <prd-name> <task-name> <new-status>"
     echo ""
     echo "Updates the status of a task in a PRD's tasks.yaml file."
     echo ""

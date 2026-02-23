@@ -10,7 +10,7 @@ if ! command -v yq &>/dev/null || ! command -v jq &>/dev/null; then
 fi
 
 usage() {
-    echo "Usage: claude-PRD-task-status <prd-name>"
+    echo "Usage: scripts/task-status.sh <prd-name>"
     echo ""
     echo "Returns JSON with task counts by status and total."
     exit 1

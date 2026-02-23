@@ -6,16 +6,16 @@
 Before starting, verify:
 
 1. **Identify the PRD**
-   - If not specified, list available PRDs with `claude-PRD-list-prds`
+   - If not specified, list available PRDs with `scripts/list-prds.sh`
    - Confirm which PRD to work on
 
 2. **Check Readiness**
-   - Run `claude-PRD-task-status <prd-name>`
+   - Run `scripts/task-status.sh <prd-name>`
    - Verify: `draft` count is 0 and `defined` count is > 0
    - If tasks are still in draft, suggest running PlanPRD first
 
 3. **Verify Prerequisites**
-   - Research is complete (check `claude-PRD-research-status`)
+   - Research is complete (check `scripts/research-status.sh`)
    - All discussion questions are answered
    - PRD is self-contained with all necessary context
 
@@ -23,17 +23,17 @@ Before starting, verify:
 
 ### Step 1: Implement Task Plans
 
-Get defined tasks with `claude-PRD-list-defined-tasks <prd-name>`
+Get defined tasks with `scripts/list-defined-tasks.sh <prd-name>`
 
 **Execution order**:
 - Top-level tasks: Execute **sequentially**
 - Subtasks within a parent: Execute **in parallel** when possible
 
 For each defined task:
-1. Get full task details with `claude-PRD-get-task <prd> <task-name>`
+1. Get full task details with `scripts/get-task.sh <prd> <task-name>`
 2. Launch `prd-worker` subagent with the spec path
 3. Wait for completion
-4. Update task status: `claude-PRD-update-task-status <prd> <task> completed`
+4. Update task status: `scripts/update-task-status.sh <prd> <task> completed`
 5. Log the completion in `log.md`
 
 **Handling blockers**:
