@@ -24,8 +24,15 @@ PRD_NAME="$1"
 TASKS_FILE=".claude/prds/${PRD_NAME}/tasks.yaml"
 
 if [[ ! -f "$TASKS_FILE" ]]; then
-    echo "Error: Tasks file not found: $TASKS_FILE" >&2
-    exit 1
+    jq -n '{"draft": 0, "defined": 0, "completed": 0, "total": 0}'
+    exit 0
+fi
+
+# Handle empty or null YAML content
+task_count=$(yq 'length' "$TASKS_FILE" 2>/dev/null || echo "0")
+if [[ "$task_count" -eq 0 ]]; then
+    jq -n '{"draft": 0, "defined": 0, "completed": 0, "total": 0}'
+    exit 0
 fi
 
 # Count tasks by status (both top-level leaf tasks and subtasks)
